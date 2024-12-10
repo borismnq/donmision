@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% block content %}
+{% if errors %}
+  <div class="text-red-500">
+    Errors:
+    <ul class="errorlist" role="list">
+    {% for error in errors %}
+      <li>{{error}}</li>
+    {% endfor %}
+    </ul>
+  </div>
+{% else %}
+
+<h1 class="text-3xl text-indigo-600 font-bold">{{organization.name}} Missions</h1>
+<br>    
+<div class="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8">
+{% for mission in missions %}
+
+<a
+  href="#"
+  class="relative block overflow-hidden rounded-lg border border-gray-100 p-4 sm:p-6 lg:p-8"
+>
+  <span
+    class="absolute inset-x-0 bottom-0 h-2 bg-gradient-to-r from-green-300 via-blue-500 to-purple-600"
+  ></span>
+
+  <div class="sm:flex sm:justify-between sm:gap-4">
+    <div>
+      <h3 class="text-lg font-bold text-gray-900 sm:text-xl">
+        {{mission.title}}
+      </h3>
+
+      <!-- <p class="mt-1 text-xs font-medium text-gray-600">By John Doe</p> -->
+    </div>
+
+    <div class="hidden sm:block sm:shrink-0">
+      <img
+        alt=""
+        src={{mission.image}}
+        class="size-16 rounded-lg object-cover shadow-sm"
+      />
+    </div>
+  </div>
+
+  <div class="mt-4">
+    <p class="text-pretty text-sm text-gray-500">
+      {{mission.description}}
+    </p>
+  </div>
+
+  <dl class="mt-6 flex gap-4 sm:gap-6">
+    <div class="flex flex-col-reverse">
+      <dd class="text-xs text-gray-500">{{mission.start_date}}</dd>
+      <dt class="text-sm font-medium text-gray-600">Start date</dt>
+    </div>
+
+    <div class="flex flex-col-reverse">
+      <dd class="text-xs text-gray-500">{{mission.end_date}}</dd>
+      <dt class="text-sm font-medium text-gray-600">End Date</dt>
+    </div>
+  </dl>
+</a>
+    {% endfor %}
+{% if user.is_admin %}
+<article class="align-middle overflow-hidden rounded-lg border border-gray-100 bg-white shadow-sm">
+    <div class="text-center p-4 sm:p-6">
+        <a class="group mt-4 inline-flex items-center gap-1 text-sm font-medium text-blue-600" href="{% url 'create_mission' %}"
+            class="text-gray-800 bg-blue-300 hover:bg-blue-400 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:bg-blue-300 dark:hover:bg-blue-400">
+            Create Mission
+        </a>
+    </div>
+    
+</article>
+{% endif %}
+</div>
+
+{% endif %}
+
+{% endblock content%}
+

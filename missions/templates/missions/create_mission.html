@@ -1,0 +1,339 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="mx-auto max-w-lg">
+  <h1 class="text-center text-2xl font-bold text-indigo-600 sm:text-3xl">New organization mission</h1>
+    <p class="mx-auto mt-4 max-w-md text-center text-gray-500">
+      Here you can create a new mission for your organization
+    </p>
+  <h2 class="sr-only">Steps</h2>
+  <br>
+  <div class="after:mt-4 after:block after:h-1 after:w-full after:rounded-lg after:bg-gray-200">
+    <ol class="grid grid-cols-3 text-sm font-medium text-gray-500">
+      <li class="relative flex justify-start text-blue-600">
+        <span class="absolute -bottom-[1.75rem] start-0 rounded-full bg-blue-600 text-white">
+        <svg
+            class="size-5"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </span>
+
+        <span class="hidden sm:block"> Details </span>
+
+        <svg
+          class="size-6 sm:hidden"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2"
+          />
+        </svg>
+      </li>
+      {% if create_mission_step >= 2 %}
+      <li class="relative flex justify-center text-blue-600">
+        <span
+          class="absolute -bottom-[1.75rem] left-1/2 -translate-x-1/2 rounded-full bg-blue-600 text-white"
+        >
+      {% else %}
+      <li class="relative flex justify-center text-gray-600">
+        <span
+          class="absolute -bottom-[1.75rem] left-1/2 -translate-x-1/2 rounded-full bg-gray-600 text-white"
+        >
+      {% endif %}
+          <svg
+            class="size-5"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </span>
+
+        <span class="hidden sm:block"> Rewards </span>
+
+        <svg
+          class="mx-auto size-6 sm:hidden"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+          />
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+          />
+        </svg>
+      </li>
+
+      {% if create_mission_step == 3 %}
+        <li class="relative flex justify-end text-blue-600">
+          <span class="absolute -bottom-[1.75rem] end-0 rounded-full bg-blue-600 text-white"></span>
+      {% else %}
+      <li class="relative flex justify-end text-gray-600">
+        <span class="absolute -bottom-[1.75rem] end-0 rounded-full bg-gray-600 text-white">
+      {% endif %}
+        
+          <svg
+            class="size-5"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </span>
+
+        <span class="hidden sm:block"> Finish </span>
+
+        <svg
+          class="size-6 sm:hidden"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"
+          />
+        </svg>
+      </li>
+    </ol>
+  </div>
+</div>
+
+<div class="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
+  
+  <div class="mx-auto max-w-lg">
+    {% if create_mission_step == 1 %}
+    <form action="" method="POST" class="mb-0 mt-6 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8">
+      {% csrf_token %}
+      <p class="text-center text-lg font-medium">Mission details</p>
+      <div>
+        <label for="title" class="sr-only">Title</label>
+
+        <div class="relative">
+          <input
+            type="text"
+            id="title"
+            name="title"
+            class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+            placeholder="title"
+          />
+        </div>
+      </div>
+      <div>
+        <label for="description" class="sr-only">Description</label>
+
+        <div class="relative">
+          <input
+            type="text"
+            id="description"
+            name="description"
+            class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+            placeholder="description"
+          />
+        </div>
+
+        <div>
+          <label for="start-date" class="sr-only">Start date</label>
+          <input
+              type="datetime-local"
+              id="start-date"
+              name="start-date"
+              class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+              placeholder="start-date"
+            />
+        </div>
+        <div>
+          <label for="end-date" class="sr-only">End date</label>
+        <input
+            type="datetime-local"
+            id="end-date"
+            name="end-date"
+            class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+            placeholder="end-date"
+          />
+        </div>
+      </div>
+      {% if errors %}
+          <div class="text-red-500">
+            Errors:
+            <ul class="errorlist" role="list">
+            {% for error in errors %}
+              <li>{{error}}</li>
+            {% endfor %}
+            </ul>
+          </div>
+      {% elif success%}
+          <div class="text-green-500">
+            {{success_message}}
+          </div>
+      {% endif %}
+      <button
+        type="submit"
+        class="block w-full rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white"
+      >
+        Next step
+      </button>
+<!--   
+      <p class="text-center text-sm text-gray-500">
+          Already have an account?
+        <a class="underline" href="{% url 'login' %}">Login</a>
+      </p> -->
+    </form>
+    {% endif %}
+    {% if create_mission_step >= 2 %}
+    <form action="" method="POST" class="mb-0 mt-6 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8">
+      {% csrf_token %}
+      <p class="text-center text-lg font-medium">Select Rewards</p>
+      <div>
+        <div class="flex relative">
+          <label for="Search" class="sr-only"> Search </label>
+          <!-- <input
+            type="text"
+            list="HeadlineActArtist"
+            id="HeadlineAct"
+            class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm [&::-webkit-calendar-picker-indicator]:opacity-0"
+            placeholder="Please select"
+          /> -->
+          <select
+            name="HeadlineAct"
+            id="HeadlineAct"
+            class="flex-1 rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm sm:text-sm"
+          >
+          <!-- mt-1.5 w-full rounded-lg border-gray-300 text-gray-700 sm:text-sm -->
+            <option value="">Please select</option>
+            {% for reward in rewards_list %}
+            <option value="{{reward.id}}">{{reward.title}}: {{reward.description}}</option>
+            {% endfor %}
+            <!-- <option value="JM">John Mayer</option>
+            <option value="SRV">Stevie Ray Vaughn</option>
+            <option value="JH">Jimi Hendrix</option>
+            <option value="BBK">B.B King</option>
+            <option value="AK">Albert King</option>
+            <option value="BG">Buddy Guy</option>
+            <option value="EC">Eric Clapton</option> -->
+          </select>
+          <div class="flex-1 flex justify-end items-center gap-1">
+          <button onclick="dec()" type="button" class="size-10 leading-10 text-gray-600 transition hover:opacity-75">
+            &minus;
+          </button>
+      
+          <input
+            type="number"
+            id="Quantity"
+            value="1"
+            class="h-10 w-16 rounded border-gray-200 text-center [-moz-appearance:_textfield] sm:text-sm [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none"
+          />
+      
+          <button onclick="inc()" type="button" class="size-10 leading-10 text-gray-600 transition hover:opacity-75">
+            &plus;
+          </button>
+        </div>
+        </div>
+        <!-- <datalist name="HeadlineAct" id="HeadlineActArtist"> -->
+          
+          <!-- <option value="SRV">Stevie Ray Vaughn</option>
+          <option value="JH">Jimi Hendrix</option>
+          <option value="BBK">B.B King</option>
+          <option value="AK">Albert King</option>
+          <option value="BG">Buddy Guy</option>
+          <option value="EC">Eric Clapton</option> -->
+        <!-- </datalist> -->
+        
+        <!-- <label for="title" class="sr-only">Title</label>
+        
+        <div class="relative">
+          <input
+            type="text"
+            id="title"
+            name="title"
+            class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+            placeholder="title"
+          />
+        </div> -->
+      </div>
+      <!-- <div>
+        
+        <label for="Quantity" class="sr-only">Quantity</label>
+
+        
+      </div> -->
+      {% if errors %}
+          <div class="text-red-500">
+            Errors:
+            <ul class="errorlist" role="list">
+            {% for error in errors %}
+              <li>{{error}}</li>
+            {% endfor %}
+            </ul>
+          </div>
+      {% elif success%}
+          <div class="text-green-500">
+            {{success_message}}
+          </div>
+      {% endif %}
+      <button
+        type="submit"
+        class="block w-full rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white"
+      >
+        Add rewards to mission
+      </button>
+    </form>
+    {% endif %}
+  </div>
+</div>
+<script>
+  function inc() {
+      let number = document.querySelector('[id="Quantity"]');
+      
+      number.value = parseInt(number.value) + 1;
+      console.log(number.value);
+  }
+  
+  function dec() {
+      let number = document.querySelector('[id="Quantity"]');
+      if (parseInt(number.value) > 1) {
+          number.value = parseInt(number.value) - 1;
+      }
+  
+      else {
+          alert("You can decrease up to 1")
+      }
+  }
+      
+</script>
+{% endblock content %}

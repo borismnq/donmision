@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block content %}
+<h1 class="text-3xl text-indigo-600 font-bold">Organizations</h1>
+<br>    
+<div class="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8">
+{% for organization in organizations %}
+
+<article class="overflow-hidden rounded-lg border border-gray-100 bg-white shadow-sm">
+    <img
+      alt=""
+      src={{organization.logo}}
+      class="h-56 w-full object-cover"
+    />
+  
+    <div class="p-4 sm:p-6">
+      <a href="#">
+        <h3 class="text-lg font-medium text-gray-900">
+          {{organization.name}}
+        </h3>
+      </a>
+  
+      <p class="mt-2 line-clamp-3 text-sm/relaxed text-gray-500">
+        {{organization.description}}
+      </p>
+      {% if user.is_admin %}
+      
+      <a href="{% url 'list_missions_by_organization' organization.id  %}" class="group mt-4 inline-flex items-center gap-1 text-sm font-medium text-blue-600">
+        Missions
+      
+        <span aria-hidden="true" class="block transition-all group-hover:ms-0.5 rtl:rotate-180">
+          &rarr;
+        </span>
+      </a>
+      <br>
+      <a href="{% url 'list_rewards_by_organization' organization.id  %}" class="group mt-4 inline-flex items-center gap-1 text-sm font-medium text-blue-600">
+        Rewards
+      
+        <span aria-hidden="true" class="block transition-all group-hover:ms-0.5 rtl:rotate-180">
+          &rarr;
+        </span>
+      </a>
+      {% else %}
+      <a href="" class="group mt-4 inline-flex items-center gap-1 text-sm font-medium text-blue-600">
+        Follow and get missions
+      
+        <span aria-hidden="true" class="block transition-all group-hover:ms-0.5 rtl:rotate-180">
+          &rarr;
+        </span>
+      </a>
+      {% endif %}
+
+    </div>
+  </article>
+    {% endfor %}
+{% if user.is_admin %}
+<article class="align-middle overflow-hidden rounded-lg border border-gray-100 bg-white shadow-sm">
+    <div class="text-center p-4 sm:p-6">
+        <a class="group mt-4 inline-flex items-center gap-1 text-sm font-medium text-blue-600" href="{% url 'create_organization' %}"
+            class="text-gray-800 bg-blue-300 hover:bg-blue-400 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:bg-blue-300 dark:hover:bg-blue-400">
+            Create Organization
+        </a>
+    </div>
+    
+</article>
+{% endif %}
+</div>
+
+{% endblock content%}

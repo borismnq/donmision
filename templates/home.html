@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+{% if user.is_admin %}
+
+<div class="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
+    <h1 class="text-center text-2xl font-bold text-indigo-600 sm:text-3xl">Actions
+    </h1>
+    <br>
+
+    <div class="mx-auto max-w-lg">
+        <!-- <div class="relative">
+            <a href="{% url 'create_organization' %}"
+                class="text-gray-800 bg-blue-300 hover:bg-blue-400 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:bg-blue-300 dark:hover:bg-blue-400">
+                Create Organization
+            </a>
+        </div>
+        <br> -->
+        <div class="relative">
+            <a href="{% url 'list_organizations_by_admin' %}"
+                class="text-gray-800 bg-blue-300 hover:bg-blue-400 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:bg-blue-300 dark:hover:bg-blue-400">
+                My Organizations
+            </a>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endblock content %}
